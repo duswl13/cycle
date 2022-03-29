@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<header th:replace="~{common/head :: header}"></header>
+<body>
+<div class="header">
+	<a href="/"><img src="/images/logo.png"></a>轝�瓦롣슴�뵪Spring Boot�뀯�뿨�졆堊�
+	<div class="welcome" th:if="${user != null}"><a href="/post/add">�룕躍껃뜗若�</a> 轝�瓦롳펽<span th:text="${user.username}"></span></div>
+	<div class="welcome" th:if="${user == null}"> <a href="/login">�쇉壤�</a> </div>
+</div>
+<div class="content">
+
+	<div class="post-list">
+		<ul>
+			<li th:each="model : ${posts}">
+				<a th:href="@{'/post/' + ${model.id}}">
+					<span th:text="${model.name}"></span> 竊�<span th:text="${model.createdAt}">竊�</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+</div>
+</body>
+</html>

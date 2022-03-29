@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<header th:replace="~{common/head :: header}"></header>
+<body>
+<div class="header">
+	<a href="/"><img src="/images/logo.png"></a>이건가?
+	<div class="welcome" th:if="${user != null}"><a href="/post/add">�룕躍껃뜗若�</a> 轝�瓦롳펽<span th:text="${user.username}"></span></div>
+	<div class="welcome" th:if="${user == null}"> <a href="/login">�쇉壤�</a> </div>
+</div>
+<div class="content">
+
+	<div class="board-list">
+		<ul>
+			<li th:each="model : ${boards}">
+				<a th:href="@{'/board/' + ${model.boardSkey}}">
+					제목 : <span th:text="${model.title}"></span> 생성일 : <span th:text="${model.createdDt}"></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+</div>
+</body>
+</html>
