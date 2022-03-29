@@ -22,8 +22,9 @@ public class HomeController {
         if (user != null) {
             request.setAttribute("user", user);
         }
-
-
+        
+        request.setAttribute("head", "home");
+        
         return "introduce/introduce";
     }
 
